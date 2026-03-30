@@ -1,0 +1,193 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Montserrat',sans-serif;
+}
+
+:root{
+    --c1:#032c4f;
+    --c2:#081635;
+    --c3:#0f427e;
+    --c4:#02203c;
+    --accent-purple: #7b2ff7;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(195deg, black, var(--c2), black);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* --- EXACT NAVIGATION BAR --- */
+.navbar{
+    position:fixed;
+    top:0; left:0; width:100%;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:18px 20px;
+    background:rgba(255, 255, 255, 0.05);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255, 255, 255, 0.1);
+    z-index:100;
+}
+
+.logo{ font-weight:800; font-size:20px; display:flex; gap:6px; align-items:center; }
+.logo img{ width:32px; height:32px; border-radius:8px; }
+
+.navlinks{ display:flex; gap:25px; }
+.navlinks a{
+    color:#c7d7ff; text-decoration:none; font-size:13px;
+    padding:8px 12px; border-radius:8px; transition:0.3s;
+    display: flex; align-items: center; gap: 6px;
+}
+
+.navlinks a.active{
+    background:linear-gradient(135deg, var(--c3), var(--c1));
+    box-shadow:0 0 20px rgba(15, 66, 126, 0.5);
+    color: white;
+}
+
+.search-bar { position:relative; }
+.search-bar input {
+    background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.1);
+    border-radius:8px; padding:8px 35px 8px 12px; color:white; width:180px; font-size:13px;
+}
+
+.profile{
+    width:34px; height:34px; border-radius:10px;
+    background:linear-gradient(135deg, var(--c3), var(--c1));
+    display:flex; align-items:center; justify-content:center; font-weight:700;
+}
+
+/* --- STUDY RESOURCES HEADER --- */
+.container {
+    padding-top: 120px;
+    max-width: 1200px;
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.title-area h1 { font-size: 32px; font-weight: 800; color: #8cb4ff; margin-bottom: 8px; }
+.title-area p { color: #9ab0df; font-size: 15px; }
+
+.action-area {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.search-subjects {
+    position: relative;
+}
+
+.search-subjects input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 12px 15px 12px 40px;
+    color: white;
+    width: 280px;
+    outline: none;
+}
+
+.search-subjects i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6f8cc6;
+}
+
+.upload-btn {
+    background: var(--accent-purple);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(123, 47, 247, 0.4);
+    transition: 0.3s;
+}
+
+.upload-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(123, 47, 247, 0.6);
+}
+
+/* --- NOTES GRID --- */
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.note-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 24px;
+    transition: 0.4s;
+    cursor: pointer;
+    position: relative;
+}
+
+.note-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--c4) 0px 12px 24px, 0px 0px 20px rgba(15, 66, 126, 0.2);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.file-icon {
+    width: 45px;
+    height: 45px;
+    background: rgba(0, 255, 255, 0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00ffff;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.note-tag {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 11px;
+    color: #6f8cc6;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 8px;
+    border-radius: 5px;
+}
+
+.note-info h3 { font-size: 18px; margin-bottom: 5px; }
+.note-info p { font-size: 13px; color: #6f8cc6; margin-bottom: 15px; }
+.note-info .author { color: #9ab0df; font-weight: 400; }
+
+.helpful-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #c7d7ff;
+    width: fit-content;
+    margin-top: 15px;
+}

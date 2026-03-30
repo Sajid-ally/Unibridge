@@ -1,0 +1,335 @@
+roott::after    {
+    color: #1c75bc;
+    --color-2: #1a253a;
+    --color-3: #0c101c;
+    --color-4: #080b14; 
+    }
+     /* Basic page reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        *{
+          margin:0;
+          padding:0;
+           box-sizing:border-box;
+         }
+
+        /* Dark, textured background */
+        body {
+            min-height: 100vh;
+            background-color: #0c101c;
+            background-image: linear-gradient(45deg,  #010d31,#1a253a, #0c101c, black);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            padding: 20px;
+            font-family: "Montserrat", sans-serif;
+            background-size: 400% 400%;
+            animation: colorDiffusion 20s ease-in-out infinite;
+            position: relative;
+        }
+         /*animation for the background*/
+         @keyframes colorDiffusion {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+         }
+        /* The central card - Solid and Opaque */
+        .login-card {
+            background-color: #0c101c; /* Solid Hex */
+            border: 1px solid #1a253a;
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 12px;
+            position: relative; 
+            text-align: center;
+            color: white;
+            z-index: 1;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Adds physical depth */
+        }
+        /* Logo styling */
+        .logo-container {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 21%;
+            display: block;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            /* Update the path below to your actual image file */
+            background-image: url('Picsart_26-03-03_03-18-27-701.png');
+            /* Pop up then roll to the side */
+            animation: popAndRoll 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        /* The "Welcome" text that appears after the logo rolls */
+        .welcome-text {
+            font-size: 16px; font-weight: bold; 
+            white-space: nowrap;
+             color: #1c75bc;
+            overflow: hidden;
+            width: 0;
+            opacity: 0;
+            margin-left: 0;
+            margin-top: 15px;
+            align-items: left;
+            animation: revealText 1s ease 1.2s forwards;
+        }
+        @keyframes popAndRoll {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 1; }
+            70% { transform: scale(1); }
+            100% { transform: translateX(-99px) rotate(-360deg); }
+        }
+        /* Animation: Slide out the text */
+        @keyframes revealText {
+
+            0% { width: 0; opacity: 0; margin-left: -50px; }
+
+            100% { width: 200px; opacity: 1; margin-left: -40px; }
+        }
+        .brand-name {
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin: 0;
+            text-transform: uppercase;
+        }
+        .tagline {
+            font-size: 10px;
+            color: #1c75bc; /* Matched to brand blue */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 35px;
+            font-weight: 600;
+        }
+        /* Form styling */
+        form {
+            text-align: left;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        /* Input fields with Focus Glow effect */
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #1a253a;
+            border-radius: 8px;
+            background-color: #080b14; /* Slightly darker than card for contrast */
+            color: white;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: all 0.3s ease; /* Smooth transition for the hover/focus */
+        }
+
+        /* HOVER & FOCUS EFFECTS */
+        input:hover {
+            border-color: #1c75bc;
+            background-color: #0c1220;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #1c75bc;
+            background-color: #0c1220;
+            box-shadow: 0 0 12px rgba(28, 117, 188, 0.4); /* The "Neon" glow when typing */
+        }
+
+        .flex-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        .flex-group .input-group {
+            flex: 1;
+        }
+
+        /* Checkbox styling */
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin: 20px 0 30px 0;
+            font-size: 9px;
+            color: #8a94a6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.4;
+        }
+        /* Styling for the entire Course label and dropdown container */
+.course-label {
+    /* Set the text color for 'Course:' to white, matching other labels */
+    color: white; 
+    /* Ensure it uses the same bold sans-serif font as other labels */
+    font-weight: bold;
+    font-size: 14px; 
+    
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust as needed for spacing between label and dropdown */
+}
+/* Specific styling for the actual dropdown element */
+select {
+    /* Use the same transparent background with subtle border as other fields */
+    background-color: #080b14; /* Match the background color of input fields */
+    border: 1px solid #1a253a; /* Use the same darker border as text inputs */
+    color: rgb(156, 151, 151) !important; /* Set the text inside the dropdown to white */
+    
+    /* Ensure it matches the height and padding of other inputs for a cohesive size */
+    padding: 14px 10px; /* Increase vertical padding to match input fields */
+    border-radius: 8px; /* Use the same border-radius */
+    /* Use the same smaller sans-serif font for the selected text and options */
+    font-size: 14px; 
+    
+    /* Crucial: Ensure the dropdown has a defined width so it doesn't look squished */
+    min-width: 200px; /* Adjust this value as needed to look right on your form */
+    max-width: 250px; /* Optional cap on width */
+    
+    /* Optional: Style the dropdown arrow to be less prominent, or remove and add a custom one */
+    appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 10px) center; /* Position your custom arrow */
+    padding-right: 25px; /* Adjust padding to make room for custom arrow */
+     }
+    select:hover {
+        border-color: #1c75bc;
+        background-color: #0c1220;
+    }
+    select:focus {
+        /*add glow effect on focus*/
+        outline: none;
+        border-color: rgb(26, 57, 38);
+        box-shadow: 0 0 12px rgba(28, 117, 188, 0.4);
+    }
+    select.selected{
+        color: white !important;
+    }
+        .checkbox-container input[type="checkbox"] {
+            margin-right: 10px;
+            cursor: pointer;
+            accent-color: #f1f1f1;
+        }
+        /* Styles the box itself */
+/* Styles the actual list that drops down */
+select option {
+    background-color: #161b22; /* Dark color for the list items */
+    color: white;              /* White text for the list items */
+    padding: 14px;              
+    }
+/* Fixes the "Course:" text color */
+      .course-label {
+    color: white !important; /* Force the label text to be white */
+    font-weight: bold;
+    margin-right: 8px;
+       }
+        /* Primary action button */
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #1c75bc, #0a3d60);
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .submit-btn:hover {
+            box-shadow: 0 0 20px rgba(28, 117, 188, 0.5);
+            transform: translateY(-1px);
+        }
+        .submit-btn:active {
+            transform: translateY(1px);
+        }
+        .footer-links {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+             color: #8a94a6;
+        }   
+           .footer-links a {
+            color: #2488da;
+            font-size: 15px;
+            font-weight: 500;
+            display: inline-block;
+            margin: 10px 15px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            padding: none;
+           }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        /* Divider logic */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+    color: #8a94a6;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #1a253a;
+}
+
+.divider:not(:empty)::before {
+    margin-right: .5em;
+}
+
+.divider:not(:empty)::after {
+    margin-left: .5em;
+}
+
+/* Google Button Styling */
+.google-btn {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #1a253a;
+    border-radius: 8px;
+    background-color: #080b14;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.google-btn:hover {
+    background-color: #1a253a;
+    border-color: #1c75bc;
+}
+
+.google-btn img {
+    width: 18px;
+    height: 18px;
+}

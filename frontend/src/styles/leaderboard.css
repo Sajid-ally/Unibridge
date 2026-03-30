@@ -1,0 +1,175 @@
+/* --- CORE STYLING --- */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Montserrat',sans-serif;
+}
+
+:root{
+    --c1:#032c4f;
+    --c2:#081635;
+    --c3:#0f427e;
+    --c4:#02203c;
+    --gold: #ffb700;
+    --silver: #c0c0c0;
+    --bronze: #cd7f32;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(195deg, black, var(--c2), black);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* --- EXACT NAVIGATION BAR --- */
+.navbar{
+    position:fixed;
+    top:0; left:0; width:100%;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:18px 20px;
+    background:rgba(255, 255, 255, 0.05);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255, 255, 255, 0.1);
+    z-index:100;
+}
+
+.logo{ font-weight:800; font-size:20px; display:flex; gap:6px; align-items:center; }
+.logo img{ width:32px; height:32px; border-radius:8px; }
+
+.navlinks{ display:flex; gap:25px; }
+.navlinks a{
+    color:#c7d7ff; text-decoration:none; font-size:13px;
+    padding:8px 12px; border-radius:8px; transition:0.3s;
+    display: flex; align-items: center; gap: 6px;
+}
+
+.navlinks a.active{
+    background:linear-gradient(135deg, var(--c3), var(--c1));
+    box-shadow:0 0 20px rgba(15, 66, 126, 0.5);
+    color: white;
+}
+
+.search-bar { position:relative; }
+.search-bar input {
+    background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.1);
+    border-radius:8px; padding:8px 35px 8px 12px; color:white; width:180px; font-size:13px;
+}
+
+.profile{
+    width:34px; height:34px; border-radius:10px;
+    background:linear-gradient(135deg, var(--c3), var(--c1));
+    display:flex; align-items:center; justify-content:center; font-weight:700;
+}
+
+/* --- LEADERBOARD CONTENT --- */
+.container {
+    padding-top: 100px;
+    max-width: 900px;
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+}
+
+.trophy-glow {
+    width: 80px;
+    height: 80px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 50px rgba(255, 183, 0, 0.4);
+    color: white;
+}
+
+.title-section h1 {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.title-section p {
+    color: #9ab0df;
+    line-height: 1.6;
+    margin-bottom: 50px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- LEADERBOARD TABLE --- */
+.leaderboard-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 80px 1fr 100px;
+    padding: 15px 30px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #6f8cc6;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+.rank-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 100px;
+    padding: 20px 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    align-items: center;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.rank-row:last-child { border-bottom: none; }
+
+.rank-row:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.rank-icon { font-size: 22px; }
+.rank-1 { color: var(--gold); }
+.rank-2 { color: var(--silver); }
+.rank-3 { color: var(--bronze); }
+
+.student-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--accent-blue, #7b2ff7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.details h4 { font-size: 16px; margin-bottom: 2px; }
+.details p { font-size: 12px; color: #6f8cc6; display: flex; align-items: center; gap: 5px; }
+.details p i { color: #00ffaa; font-size: 10px; }
+
+.points {
+    font-weight: 700;
+    font-size: 18px;
+    color: #4facfe;
+    text-align: right;
+}
