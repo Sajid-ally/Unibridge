@@ -1,0 +1,244 @@
+/* --- CORE DASHBOARD STYLING --- */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Montserrat',sans-serif;
+}
+
+:root{
+    --c1:#032c4f;
+    --c2:#081635;
+    --c3:#0f427e;
+    --c4:#02203c;
+    --accent: #7b2ff7;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(195deg, black,var(--c2),black);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* --- EXACT NAVIGATION BAR FROM DASHBOARD --- */
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 20px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    z-index:100;
+}
+
+.logo{
+    font-weight:800;
+    font-size:20px;
+    display:flex;
+    gap:6px;
+    align-items:center;
+}
+
+.logo img{
+    width:32px;
+    height:32px;
+    border-radius:8px;
+}
+
+.navlinks{
+    display:flex;
+    gap:25px;
+}
+
+.navlinks a{
+    color:#c7d7ff;
+    text-decoration:none;
+    font-size:13px;
+    padding:8px 12px;
+    border-radius:8px;
+    transition:0.3s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.navlinks a:hover{
+    background:rgba(255,255,255,0.1);
+    box-shadow:0 4px 12px rgba(15,66,126,0.3);
+    transform:translateY(-1px);
+}
+
+.navlinks a.active{
+    background:linear-gradient(135deg,var(--c3),var(--c1));
+    box-shadow:0 0 20px rgba(15,66,126,0.5);
+    color: white;
+}
+
+.search-bar {
+    position:relative;
+}
+
+.search-bar input {
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:8px;
+    padding:8px 35px 8px 12px;
+    color:white;
+    width:180px;
+    font-size:13px;
+}
+
+.search-bar::after {
+    content:"🔍";
+    position:absolute;
+    right:10px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#9ab0df;
+    font-size:14px;
+}
+
+.profile{
+    width:34px;
+    height:34px;
+    border-radius:10px;
+    background:linear-gradient(135deg,var(--c3),var(--c1));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    cursor:pointer;
+}
+
+/* --- FEED SPECIFIC CONTENT --- */
+.container{
+    padding-top:110px;
+    width:100%;
+    max-width:800px;
+    margin:auto;
+    padding-left:20px;
+    padding-right:20px;
+}
+
+/* SHARE BOX */
+.share-box {
+    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 35px;
+    backdrop-filter: blur(10px);
+}
+
+.share-box h2 { font-size: 18px; margin-bottom: 15px; color: #fff; }
+
+.input-field {
+    width: 100%;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 12px;
+    color: white;
+    margin-bottom: 12px;
+    outline: none;
+    font-size: 14px;
+}
+
+textarea.input-field { height: 100px; resize: none; }
+
+.share-footer {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.select-tag {
+    background: rgba(255,255,255,0.05);
+    color: #9ab0df;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.post-btn {
+    margin-left: auto;
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(123, 47, 247, 0.3);
+}
+
+.post-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(123, 47, 247, 0.5);
+}
+
+/* POST CARDS WITH DASHBOARD HOVER GLOW */
+.post-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid rgba(255,255,255,0.06);
+    margin-bottom: 20px;
+    transition: 0.4s ease;
+    cursor: pointer;
+}
+
+/* THE HOVER GLOW EFFECT FROM YOUR DASHBOARD */
+.post-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--c4) 0px 12px 24px, 0px 0px 20px rgba(15, 66, 126, 0.2);
+    border-color: rgba(255,255,255,0.15);
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.user-block { display: flex; gap: 12px; align-items: center; }
+
+.avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--c3), var(--c1));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.meta h4 { font-size: 14px; color: #fff; }
+.meta span { font-size: 12px; color: #6f8cc6; }
+
+.badge {
+    background: rgba(255,255,255,0.07);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 10px;
+    color: #9ab0df;
+    height: fit-content;
+    text-transform: uppercase;
+}
+
+.post-body h3 { font-size: 18px; margin-bottom: 8px; font-weight: 700; }
+.post-body p { font-size: 14px; color: #9ab0df; line-height: 1.6; }
+
+.post-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    color: #6f8cc6;
+}
