@@ -1,186 +1,106 @@
-import { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom"; // ✅ FIXED
+import React from 'react';
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/dashboard.css";
+const Dashboard = () => {
+  const events = [
+    { id: 1, tag: 'Conference', title: 'UP Tech Summit', desc: 'Join innovators across Uttar Pradesh.' },
+    { id: 2, tag: 'Hackathon', title: 'Hack-A-Thon 2026', desc: 'Build something amazing with students.' },
+    { id: 3, tag: 'Workshop', title: 'AI Bootcamp', desc: 'Hands-on AI development workshop.' },
+  ];
 
-function Dashboard() {
-  const [msg, setMsg] = useState("Loading...");
-  const [activeCard, setActiveCard] = useState(null);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    fetch("http://localhost:5000/api/test")
-      .then((res) => res.json())
-      .then((data) => setMsg(data.message))
-      .catch(() => setMsg("Backend not connected"));
-  }, []);
-
-  const toggleCard = (id) => {
-    setActiveCard(activeCard === id ? null : id);
-  };
-
-  const toggleMenu = () => {
-    document.getElementById("navlinks")?.classList.toggle("active");
-    document.querySelector(".hamburger")?.classList.toggle("active");
-    document.body.classList.toggle("menu-open");
-  };
+  const discussions = [
+    { id: 1, tag: 'Discussion', title: 'Best AI tools for students?', desc: 'Share your productivity stack.' },
+    { id: 2, tag: 'Debate', title: 'Is AI replacing programmers?', desc: 'Hot topic in tech clubs.' },
+    { id: 3, tag: 'Campus', title: 'Best coding clubs in UP?', desc: 'Students sharing recommendations.' },
+    { id: 4, tag: 'Tech', title: 'React vs Next.js', desc: 'Which one should you learn first?' },
+    { id: 5, tag: 'Help', title: 'Vite build error', desc: 'Looking for a fix for build 404s.' },
+    { id: 6, tag: 'Social', title: 'Weekend plans?', desc: 'Any meetups happening in Lucknow?' },
+  ];
 
   return (
-    <>
-      {/* NAVBAR */}
-      <div className="navbar">
-        <div className="logo">
-          <img src="Picsart_26-03-03_03-18-27-701.png" alt="UniBridge Logo" />
-          <span>UniBridge</span>
-        </div>
-
-        <div className="navlinks" id="navlinks">
-          <Link to="/dashboard" className="active">Home</Link>
-          <Link to="/project">Project</Link>
-          <Link to="/leaderboard">Leaderboard</Link>
-          <Link to="/events">Events</Link>
-          <Link to="/feed">Feed</Link>
-          <Link to="/notes">Notes</Link>
-        </div>
-
-        <div className="nav-right">
-          <div className="search-bar">
-            <input type="text" placeholder="Search..." />
+    <div className="dashboard-wrapper">
+      <div className="bg-glow"></div>
+      
+      <nav className="glass-nav">
+        <div className="nav-container">
+          <div className="nav-left">
+            <span className="logo-icon">🔗</span>
+            <span className="logo-text">UniBridge</span>
           </div>
 
-          <div className="profile">S</div>
+          <div className="nav-center">
+            <a href="#" className="nav-link active">🏠 Home</a>
+            <a href="#" className="nav-link">📁 Project</a>
+            <a href="#" className="nav-link">🏆 Leaderboard</a>
+            <a href="#" className="nav-link">📅 Events</a>
+            <a href="#" className="nav-link">💬 Feed</a>
+            <a href="#" className="nav-link">📝 Notes</a>
+          </div>
 
-          <div className="hamburger" onClick={toggleMenu}>
-            <div></div>
-            <div></div>
-            <div></div>
+          <div className="nav-right">
+            <div className="search-bar">
+              <input type="text" placeholder="Search..." />
+              <span className="search-icon">🔍</span>
+            </div>
+            <div className="profile-square">S</div>
           </div>
         </div>
-      </div>
+      </nav>
 
-      {/* MAIN */}
-      <div className="container">
-        <div className="hero">
-          <h2>Hello, Sayem!</h2>
+      <main className="content-container">
+        <section className="hero-section glass-tile">
+          <h1>Hello, Sayem!</h1>
           <p>Your campus community has 3 trending discussions for you.</p>
+          <button className="hero-btn">Explore Discussions</button>
+        </section>
 
-          {/* ✅ FIXED BUTTON */}
-          <button className="btn" onClick={() => navigate("/feed")}>
-            Explore Discussions
-          </button>
-
-          <p style={{ marginTop: "10px" }}>{msg}</p>
-
-          {/* LOGOUT */}
-          <button onClick={() => navigate("/")}>Logout</button>
-        </div>
-
-        <div className="main-grid">
-
-          {/* EVENTS */}
-          <div className="column-box">
-            <div className="column-header">
-              <div className="section-title">TRENDING EVENTS</div>
-
-              {/* ✅ VIEW ALL FIX */}
-              <button
-                className="view-all-btn"
-                onClick={() => navigate("/events")}
-              >
-                View All →
-              </button>
-            </div>
-
-            <div className="grid">
-              {[1,2,3].map((id) => (
-                <div
-                  key={id}
-                  className={`card ${activeCard === id ? "active" : ""}`}
-                  onClick={() => toggleCard(id)}
-                >
-                  <div className="card-header">
-                    <div>
-                      <div className="tag">Event</div>
-                      <div className="card-title">Event {id}</div>
-                      <div className="card-desc">Description here</div>
-                    </div>
-                    <div className="card-toggle">{">"}</div>
-                  </div>
-
-                  <div className="dropdown">
-                    <div className="dropdown-inner">
-                      <p>More details about event</p>
-
-                      {/* ✅ REGISTER BUTTON FIX */}
-                      <button
-                        className="btn"
-                        onClick={(e) => {
-                          e.stopPropagation(); // prevents card toggle
-                          navigate("/events");
-                        }}
-                      >
-                        Register
-                      </button>
-                    </div>
-                  </div>
+        <section className="dashboard-section">
+          <div className="section-header">
+            <h3>TRENDING EVENTS</h3>
+            <a href="#">View All →</a>
+          </div>
+          <div className="horizontal-scroll">
+            {events.map(e => (
+              <div key={e.id} className="event-card glass-tile">
+                <div className="card-meta">
+                  <span className="tag">{e.tag}</span>
+                  <span className="arrow">↗</span>
                 </div>
-              ))}
+                <div className="card-body">
+                   <h2>{e.title}</h2>
+                   <p>{e.desc}</p>
+                </div>
+              </div>
+            ))}
+            <div className="view-more-tile glass-tile">
+              <span className="plus">+</span>
+              <span>View More</span>
             </div>
           </div>
+        </section>
 
-          {/* DISCUSSIONS */}
-          <div className="column-box">
-            <div className="column-header">
-              <div className="section-title">TOP DISCUSSIONS</div>
-
-              <button
-                className="view-all-btn"
-                onClick={() => navigate("/feed")}
-              >
-                View All →
-              </button>
-            </div>
-
-            <div className="grid">
-              {[1,2,3].map((id) => (
-                <div
-                  key={id}
-                  className={`card ${activeCard === id+10 ? "active" : ""}`}
-                  onClick={() => toggleCard(id+10)}
-                >
-                  <div className="card-header">
-                    <div>
-                      <div className="tag">Discussion</div>
-                      <div className="card-title">Topic {id}</div>
-                      <div className="card-desc">Discussion preview</div>
-                    </div>
-                    <div className="card-toggle">{">"}</div>
-                  </div>
-
-                  <div className="dropdown">
-                    <div className="dropdown-inner">
-                      <p>Discussion content</p>
-
-                      {/* ✅ JOIN BUTTON FIX */}
-                      <button
-                        className="btn"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          navigate("/feed");
-                        }}
-                      >
-                        Join
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+        <section className="dashboard-section">
+          <div className="section-header">
+            <h3>TOP DISCUSSIONS</h3>
+            <a href="#">View All →</a>
           </div>
-
-        </div>
-      </div>
-    </>
+          <div className="vertical-grid">
+            {discussions.map(d => (
+              <div key={d.id} className="discussion-card glass-tile">
+                <div className="card-meta">
+                  <span className="tag disc-tag">{d.tag}</span>
+                  <span className="arrow">↗</span>
+                </div>
+                <h2>{d.title}</h2>
+                <p>{d.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      </main>
+    </div>
   );
-}
+};
 
 export default Dashboard;
