@@ -13,12 +13,12 @@ function Feed() {
         </div>
 
         <div className="navlinks">
-          <a href="#home"><i className="fas fa-home"></i>Home</a>
-          <a href="#project"><i className="fas fa-project-diagram"></i>Project</a>
-          <a href="#leaderboard"><i className="fas fa-trophy"></i>Leaderboard</a>
-          <a href="#events"><i className="fas fa-calendar-alt"></i>Events</a>
-          <a href="#feed" className="active"><i className="fas fa-comments"></i>Feed</a>
-          <a href="#notes"><i className="fas fa-sticky-note"></i>Notes</a>
+          <Link to="/home" className="nav-link active">Home</Link>
+          <Link to="/project"><i className="fas fa-project-diagram"></i>Project</Link>
+          <Link to="/leaderboard"><i className="fas fa-trophy"></i>Leaderboard</Link>
+          <Link to="/events"><i className="fas fa-calendar-alt"></i>Events</Link>
+          <Link to="/feed" className="active"><i className="fas fa-comments"></i>Feed</Link>
+          <Link to="/notes"><i className="fas fa-sticky-note"></i>Notes</Link>
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
