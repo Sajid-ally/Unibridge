@@ -10,14 +10,10 @@ app.use(express.json());
 
 console.log("Server file loaded");
 
-
-
-const mongoose = require("mongoose");
-
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected ✅"))
   .catch(err => console.log(err));
-
+dbName: "unibridge"
 
 // ✅ Test Route
 app.get("/api/test", (req, res) => {
