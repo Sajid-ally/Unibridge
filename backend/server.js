@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const authMiddleware = require("./middleware/authMiddleware");
-
+require("dotenv").config();
 const app = express();
 
 app.use(cors());
@@ -10,10 +10,14 @@ app.use(express.json());
 
 console.log("Server file loaded");
 
-// ✅ MongoDB Connection
-mongoose.connect("mongodb+srv://technicalnishant53_db_user:IMsXwUQr0j9tMiYi@cluster0.i9orwaa.mongodb.net/unibridge?retryWrites=true&w=majority")
-  .then(() => console.log("MongoDB connected"))
+
+
+const mongoose = require("mongoose");
+
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB connected ✅"))
   .catch(err => console.log(err));
+
 
 // ✅ Test Route
 app.get("/api/test", (req, res) => {
