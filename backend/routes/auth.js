@@ -7,9 +7,11 @@ const User = require("../models/user");
 // Signup
 router.post("/signup", async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, phone } = req.body;
 
-    const existingUser = await User.findOne({ email });
+    const existingUser = await User.findOne({
+  $or: [{ email }, { phone }]
+});
     if (existingUser) {
       return res.json({ message: "User already exists" });
     }
@@ -19,12 +21,17 @@ router.post("/signup", async (req, res) => {
     const user = new User({
       name,
       email,
+      phone,
       password: hashedPassword
     });
 
     await user.save();
 
-    res.json({ message: "User registered successfully" });
+    const token = jwt.sign({ id: user._id }, "secretkey", {
+  expiresIn: "1d"
+});
+
+res.json({ token });
 
   } catch (err) {
     res.status(500).json({ error: err.message });
