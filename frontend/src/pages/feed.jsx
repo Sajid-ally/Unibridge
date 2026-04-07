@@ -4,30 +4,35 @@ import "../styles/feed.css";
 
 function Feed() {
   return (
-    <div>
-
-      <div className="navbar">
-        <div className="logo">
-          <img src="Picsart_26-03-03_03-18-27-701.png" alt="UniBridge Logo" />
-          <span>UniBridge</span>
-        </div>
-
-        <div className="navlinks">
-          <Link to="/home" className="nav-link active">Home</Link>
-          <Link to="/project"><i className="fas fa-project-diagram"></i>Project</Link>
-          <Link to="/leaderboard"><i className="fas fa-trophy"></i>Leaderboard</Link>
-          <Link to="/events"><i className="fas fa-calendar-alt"></i>Events</Link>
-          <Link to="/feed" className="active"><i className="fas fa-comments"></i>Feed</Link>
-          <Link to="/notes"><i className="fas fa-sticky-note"></i>Notes</Link>
-        </div>
-
-        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-          <div className="search-bar">
-            <input type="text" placeholder="Search..." />
-          </div>
-          <div className="profile">S</div>
-        </div>
-      </div>
+          <div className="dashboard-wrapper">
+            <div className="bg-glow"></div>
+      
+            <nav className="glass-nav">
+              <div className="nav-container">
+                <div className="nav-left">
+                  <span className="logo-icon">🔗</span>
+                  <span className="logo-text">UniBridge</span>
+                </div>
+      
+                <div className="nav-center">
+                  
+                  <Link to="/home" className="nav-link active">🏠Home</Link>
+                  <Link to="/projects" className="nav-link">📁 Project</Link>
+                  <Link to="/leaderboard" className="nav-link">🏆 Leaderboard</Link>
+                  <Link to="/events" className="nav-link">📅 Events</Link>
+                  <Link to="/feed" className="nav-link">💬 Feed</Link>
+                  <Link to="/notes" className="nav-link">📝 Notes</Link>
+                </div>
+      
+                <div className="nav-right">
+                  <div className="search-bar">
+                    <input type="text" placeholder="Search..." />
+                    <span className="search-icon"></span>
+                  </div>
+                  <div className="profile-square">S</div>
+                </div>
+              </div>
+            </nav>
 
       <div className="container">
 
