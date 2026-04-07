@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route,Navigate } from "react-router-dom";
 import Login from "./pages/signin";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -16,8 +16,8 @@ function App() {
           path="/"
           element={
             (localStorage.getItem("token") || sessionStorage.getItem("token"))
-              ? <Home />
-              : <Login />
+              ? <Navigate to="/home" />
+              : <Navigate to="/signin" />
           }
         />
 
