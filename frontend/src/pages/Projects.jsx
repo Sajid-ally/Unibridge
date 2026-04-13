@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import "../styles/events.css";
+import "../styles/Projects.css";
 import Navbar from "../components/Navbar";
-function Events() {
+function Projects() {
   return (
           <div className="dashboard-wrapper">
             <div className="bg-glow"></div>
@@ -11,4 +11,4 @@ function Events() {
   );
 }
 
-export default Events;
+export default Projects;

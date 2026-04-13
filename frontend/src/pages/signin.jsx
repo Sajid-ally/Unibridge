@@ -93,15 +93,10 @@ function SigninPage() {
 
       <div className="login-card">
 
-        <div className="logo-container">
-          <div className="logo"></div>
-
-          <div className="logo-wrapper">
-            <div className="welcome-text">
-              WELCOME 
-            </div>
-          </div>
-        </div>
+        <div className="welcome-container">
+  <h1 className="welcome-text">WELCOME</h1>
+      </div>
+        
 
         <h1 className="brand-name">UNIBRIDGE</h1>
         <p className="tagline">CONNECT. COLLABORATE. CONQUER.</p>

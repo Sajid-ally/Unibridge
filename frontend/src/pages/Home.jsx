@@ -1,7 +1,7 @@
 import React from 'react';
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import "../styles/home.css";
+import Navbar from "../components/Navbar";
+
 function Home() {
   const events = [
     { id: 1, tag: 'Conference', title: 'UP Tech Summit', desc: 'Join innovators across Uttar Pradesh.' },
@@ -22,32 +22,7 @@ function Home() {
     <div className="dashboard-wrapper">
       <div className="bg-glow"></div>
 
-      <nav className="glass-nav">
-        <div className="nav-container">
-          <div className="nav-left">
-            <span className="logo-icon">🔗</span>
-            <span className="logo-text">UniBridge</span>
-          </div>
-
-          <div className="nav-center">
-            
-            <Link to="/home" className="nav-link active">🏠Home</Link>
-            <Link to="/projects" className="nav-link">📁 Project</Link>
-            <Link to="/leaderboard" className="nav-link">🏆 Leaderboard</Link>
-            <Link to="/events" className="nav-link">📅 Events</Link>
-            <Link to="/feed" className="nav-link">💬 Feed</Link>
-            <Link to="/notes" className="nav-link">📝 Notes</Link>
-          </div>
-
-          <div className="nav-right">
-            <div className="search-bar">
-              <input type="text" placeholder="Search..." />
-              <span className="search-icon"></span>
-            </div>
-            <div className="profile-square">S</div>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       <main className="content-container">
         <section className="hero-section glass-tile">

@@ -75,7 +75,7 @@ const [showSuccess, setShowSuccess] = useState(false);
 
         <div className="logo-container">
           <div className="logo"></div>
-          <div className="welcome-text">WELCOME TO UNIBRIDGE</div>
+          <div className="welcome-text">WELCOME</div>
         </div>
 
         <h1 className="brand-name">UNIBRIDGE</h1>

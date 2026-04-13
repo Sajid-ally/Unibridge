@@ -1,0 +1,82 @@
+body {
+  background-color: #050b18;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  background-image: radial-gradient(circle at top right, #0a1931, #050b18);
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Navbar */
+.nav-blur {
+  background: rgba(13, 21, 38, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Cards */
+.card-bg {
+  background: #0d1526;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Inputs */
+.input-dark {
+  background: #161f30;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff !important;
+}
+
+/* Select dropdown fix */
+select option {
+  background: #0d1526;
+  color: #ffffff;
+}
+
+/* Profile Image Fix */
+.profile-img {
+  width: 140px;
+  height: 140px;
+  border-radius: 20px;
+  object-fit: cover;
+  border: 3px solid rgba(28,117,188,0.3);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out forwards;
+}
