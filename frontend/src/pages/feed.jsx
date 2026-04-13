@@ -1,38 +1,14 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../styles/feed.css";
-
+import Navbar from "../components/Navbar";
 function Feed() {
   return (
           <div className="dashboard-wrapper">
             <div className="bg-glow"></div>
-      
-            <nav className="glass-nav">
-              <div className="nav-container">
-                <div className="nav-left">
-                  <span className="logo-icon">🔗</span>
-                  <span className="logo-text">UniBridge</span>
-                </div>
-      
-                <div className="nav-center">
-                  
-                  <Link to="/home" className="nav-link active">🏠Home</Link>
-                  <Link to="/projects" className="nav-link">📁 Project</Link>
-                  <Link to="/leaderboard" className="nav-link">🏆 Leaderboard</Link>
-                  <Link to="/events" className="nav-link">📅 Events</Link>
-                  <Link to="/feed" className="nav-link">💬 Feed</Link>
-                  <Link to="/notes" className="nav-link">📝 Notes</Link>
-                </div>
-      
-                <div className="nav-right">
-                  <div className="search-bar">
-                    <input type="text" placeholder="Search..." />
-                    <span className="search-icon"></span>
-                  </div>
-                  <div className="profile-square">S</div>
-                </div>
-              </div>
-            </nav>
+      <Navbar />
+          
+               
 
       <div className="container">
 

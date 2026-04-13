@@ -1,33 +1,16 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import "../styles/leaderboard.css";
-
+import { NavLink } from "react-router-dom";
+import Navbar from "../components/Navbar";
 function Leaderboard() {
   return (
-    <div>
+    <div className="dashboard-wrapper">
+            <div className="bg-glow"></div>
+      <Navbar />
+    
+    
 
-      <div className="navbar">
-        <div className="logo">
-          <img src="Picsart_26-03-03_03-18-27-701.png" alt="Logo" />
-          <span>UniBridge</span>
-        </div>
-
-        <div className="navlinks">
-          <a href="#home"><i className="fas fa-home"></i>Home</a>
-          <a href="#events"><i className="fas fa-calendar-alt"></i>Events</a>
-          <a href="#feed"><i className="fas fa-comments"></i>Feed</a>
-          <a href="#project"><i className="fas fa-project-diagram"></i>Projects</a>
-          <a href="#notes"><i className="fas fa-sticky-note"></i>Notes</a>
-          <a href="#leaderboard" className="active"><i className="fas fa-trophy"></i>Leaderboard</a>
-        </div>
-
-        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-          <div className="search-bar">
-            <input type="text" placeholder="Search..." />
-          </div>
-          <div className="profile">U</div>
-        </div>
-      </div>
+        
 
       <div className="container">
         <div className="title-section">
